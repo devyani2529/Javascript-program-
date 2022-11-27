@@ -1,0 +1,290 @@
+Exp 1 AREA 
+
+function getTriangle(){
+    const base=parseInt(document.getElementById("base").value);
+    const height=parseInt(document.getElementById("height").value);
+
+    const area=(base*height)/2;
+    document.getElementById("result1").innerHTML=area;
+}
+function getRectangle()
+{
+    const width= parseInt(document.getElementById("width").value);
+    const length=parseInt(document.getElementById("length").value);
+
+    const area=length*width;
+    document.getElementById("result2").innerHTML=area;
+}
+function getCircle()
+{
+    const radius=parseInt(document.getElementById("radius").value);
+    const area=3.14*radius*radius;
+    document.getElementById("result3").innerHTML=area;
+}
+
+------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area by 404A052
+    </title>
+</head>
+<body>
+    <script src="exp1.js"></script>
+    <div>
+        <h1>Area of triangle</h1>
+        <label for="">base of triangle</label>
+        <input type="text" id="base" />
+        <label for="">height of triangle</label>
+        <input type="text" id="height" />
+        <button onclick="getTriangle()">submit</button>
+        <h2>Area of triangle is<span id="result1"></span></h2>
+    </div>
+
+    <div>
+        <h1>Area of rectangle</h1>
+        <label for="">width of rectangle</label>
+        <input type="text" id="width" />
+        <label for="">length of rectangle</label>
+        <input type="text" id="length" />
+        <button onclick="getRectangle()">submit</button>
+        <h2>Area of rectangle is <span id="result2"></span></h2>
+    </div>
+
+    <div>
+        <h1>Area of Circle</h1>
+        <label for="">radius of circle</label>
+        <input type="text" id="radius" />
+        <button onclick="getCircle()">submit</button>
+        <h2>Area of circle is <span id="result3"></span></h2>
+    </div>
+</body>
+</html>
+----------------------------------------------------------------------------------------------
+EXP 2 TABLE
+
+function getTable(){
+    const num=parseInt(document.getElementById("num").value);
+    const lim=parseInt(document.getElementById("lim").value);
+    for(let i=1;i<=lim;i++)
+    document.write(`<br>${num} * ${i} = ${i * num}`);
+}
+
+------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication table</title>
+</head>
+<body>
+    <script src="exp2.js">
+      
+    </script>
+    <h1>Multiplication table</h1>
+    <label for="">table of given number</label>
+    <input type="text" id="num" />
+    <label for="">enter limit</label>
+    <input type="text" id="lim" />
+    <button onclick="getTable()">Calculate</button>
+    
+</body>
+</html>
+
+-------------------------------------
+
+EXP 3 STRING 
+
+function Reverse()
+{
+    let str=document.getElementById("str").value;
+    var newstr="";
+    for(let i=str.length-1;i>=0;i--)
+    { newstr+=str[i];}
+    document.getElementById("newstring").innerHTML=`Reverse of ${str} : ${newstr}`;
+}
+
+function Palindrome()
+{
+    let str=document.getElementById("string").value;
+    let revstr=str.split("").reverse().join("");
+
+    if(str.toLowerCase()===revstr.toLowerCase())
+    { document.getElementById("revstring").innerHTML=` Palindrome`;
+    }
+    else{document.getElementById("revstring").innerHTML=`not palin`;}
+}
+
+function Replace()
+{
+    let str1=document.getElementById("string1").value;
+    let str2=document.getElementById("string2").value;
+    let str3=document.getElementById("string3").value;
+    let result= str1.replace(str2,str3);
+    document.getElementById("replacestr").innerHTML=`after replace ${str1} is ${result}`;
+}
+
+------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Applications</title>
+</head>
+<body>
+    <script src="exp3.js"></script>
+
+    <div>
+    <h1>Reverse the string</h1>
+    <label for="">String</label>
+    <input type="text" id="str"/>
+
+    <button onclick="Reverse()">Reverse </button>
+    <br></br>
+    <h3 id="newstring"></h3>
+    </div>
+
+    <div>
+        <h1>palindrome the string</h1>
+        <label for="">String</label>
+        <input type="text" id="string"/>
+    
+        <button onclick="Palindrome()">Palindrome</button>
+        <br></br>
+        <h3 id="revstring"></h3>
+    </div>
+
+    <div>
+        <h1>Replace the character of string</h1>
+        <label for="">Enter the string</label>
+        <input type="text" id="string1"/>
+        <br></br>
+        <label for="">Enter the character to replace</label>
+        <input type="text" id="string2"/>
+        <br></br>
+        <label for="">Enter the character to be replaced with</label>
+        <input type="text" id="string3"/>
+        <br></br>
+        <button onclick="Replace()">Replace</button>
+        <h3 id="replacestr"></h3>
+    </div>
+
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------
+
+exp 5
+
+function startTimer() {
+    var x = setInterval(function() {
+    var countDownDate = document.getElementById("timer").value;
+    var timer = new Date(countDownDate);
+    var now = new Date().getTime();
+    
+    var distance = timer - now;
+    
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById("result").innerHTML = ` Timer will end in
+    ${days} d : ${hours} h : ${minutes} m : ${seconds} s`;
+    
+    if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("result").innerHTML = "EXPIRED";
+    }
+    }, 1000);}
+
+------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown timer</title>
+</head>
+<body>
+    <script src="exp5.js"></script>
+    <h1>Countdown timer</h1>
+    <input type="datetime-local" name="" id="timer">
+    <button onclick="startTimer()">Start timer</button>
+    <h3 id="result"></h3>
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------
+EXP 9 CALCULATOR
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator operations</title>
+</head>
+<body>
+    <script src="exp9.js"></script>
+    <p>Enter first num: <input id="n1"/></p>
+    <p>Enter second num: <input id="n2"/></p>
+    <button onclick="add()">Addtion</button>
+    <button onclick="sub()">Subtraction</button>
+    <button onclick="mult()">multiplication</button>
+    <button onclick="div()">division</button>
+    <p>Result: <input id="ans"/></p>
+</body>
+</html>
+
+--------------------------------------
+
+let num1,num2;
+const readInput = ()=>{
+    num1=parseInt(document.getElementById("n1").value);
+    num2=parseInt(document.getElementById("n2").value);
+}
+
+const add=()=>
+{
+    readInput;
+    let sum=num1+num2;
+    document.getElementById("ans").value=sum;
+}
+
+const sub=()=>
+{
+    readInput();
+    let diff=num1>num2?(num1-num2):(num2-num1);
+    document.getElementById("ans").value=diff;
+}
+const mult=()=>
+{
+    readInput;
+    let mult=num1*num2;
+    document.getElementById("ans").value=mult;
+}
+const div=()=>
+{readInput();
+let div=num1/num2;
+document.getElementById("ans").value=div;
+}
+
+-------------------------------------------------------------------------------------
+
+
+
